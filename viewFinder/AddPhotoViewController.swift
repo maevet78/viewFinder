@@ -8,34 +8,23 @@
 
 import UIKit
 
-class AddPhotoViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+class AddPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
     var imagePicker = UIImagePickerController()
     
-    @IBOutlet weak var imageVIew: UIImageView!
-    
+
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self
-
-    }
-
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    @IBAction func captionText(_ sender: UITextField) {
         
+        imagePicker.delegate = self
+        
+        // Do any additional setup after loading the view.
     }
     
+
+    @IBOutlet weak var captionText: UITextField!
     
     @IBAction func cameraTapped(_ sender: UIButton) {
         imagePicker.sourceType = .camera
@@ -56,25 +45,29 @@ class AddPhotoViewController: UITableViewController, UIImagePickerControllerDele
             
             photoToSave.caption = captionText.text
             
-            if let userImage = newImageView.image {
+            if let userImage = imageView.image {
                 
-                if let userImageData = UIImagePNGRepresentation(userImage) {
+                if let userImageData = userImage.pngData() {
                     photoToSave.imageData = userImageData
                 }
             }
             (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
             navigationController?.popViewController(animated: true)
-
+            
         }
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        {imageVIew.image = selectedImage}
+        {imageView.image = selectedImage}
         
         imagePicker.dismiss(animated: true, completion: nil)
     }
+        
+    }
+    
+    
     
 
-}
+

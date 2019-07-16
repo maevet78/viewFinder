@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ONA-Xl-OgT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="ONA-Xl-OgT">
                                 <rect key="frame" x="0.0" y="28" width="834" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ONA-Xl-OgT" id="RqF-Ec-5nr">
@@ -58,7 +58,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Camera"/>
                                 <connections>
-                                    <action selector="cameraTapped:" destination="NTC-qA-hKk" eventType="touchUpInside" id="GXa-KU-mtr"/>
+                                    <action selector="cameraTapped:" destination="NTC-qA-hKk" eventType="touchUpInside" id="2UU-3B-cJ6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDe-Mb-0Fs">
@@ -66,7 +66,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Albums"/>
                                 <connections>
-                                    <action selector="albumTapped:" destination="NTC-qA-hKk" eventType="touchUpInside" id="san-1d-09O"/>
+                                    <action selector="albumTapped:" destination="NTC-qA-hKk" eventType="touchUpInside" id="FTh-kO-0PY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wSq-Ed-qKg">
@@ -74,7 +74,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Save this photo"/>
                                 <connections>
-                                    <action selector="saveButtonTapped:" destination="NTC-qA-hKk" eventType="touchUpInside" id="11m-jf-FVM"/>
+                                    <action selector="saveButtonTapped:" destination="NTC-qA-hKk" eventType="touchUpInside" id="dEq-jN-Y47"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add a caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eyJ-fs-aIj">
@@ -113,7 +113,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add New Photo" id="E5e-9g-xOt"/>
                     <connections>
-                        <outlet property="imageVIew" destination="kDu-L1-6Kr" id="LuC-p0-bJY"/>
+                        <outlet property="captionText" destination="eyJ-fs-aIj" id="T1c-eq-gmJ"/>
+                        <outlet property="imageView" destination="kDu-L1-6Kr" id="mQ6-YE-sr0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1nm-PQ-dff" userLabel="First Responder" sceneMemberID="firstResponder"/>
