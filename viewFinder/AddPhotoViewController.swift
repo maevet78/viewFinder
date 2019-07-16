@@ -32,6 +32,9 @@ class AddPhotoViewController: UITableViewController, UIImagePickerControllerDele
         return 0
     }
 
+    @IBAction func captionText(_ sender: UITextField) {
+        
+    }
     
     
     @IBAction func cameraTapped(_ sender: UIButton) {
@@ -47,12 +50,28 @@ class AddPhotoViewController: UITableViewController, UIImagePickerControllerDele
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        if let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext {
+            
+            let photoToSave = Photos(entity: Photos.entity(), insertInto: context)
+            
+            photoToSave.caption = captionText.text
+            
+            if let userImage = newImageView.image {
+                
+                if let userImageData = UIImagePNGRepresentation(userImage) {
+                    photoToSave.imageData = userImageData
+                }
+            }
+            (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+            navigationController?.popViewController(animated: true)
+
+        }
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        {imageView.image = selectedImage}
+        {imageVIew.image = selectedImage}
         
         imagePicker.dismiss(animated: true, completion: nil)
     }
